@@ -1,8 +1,20 @@
 <resources>
     <string name="app_name">BeerBuddies</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-    <string name="tab_text_3">Tab 3</string>
-    <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!--Main-->
+
+    <string name="main_tab_beer">Beer</string>
+    <string name="main_tab_pubs">Pubs</string>
+
+    <!--Beer kinds-->
+
+    <string name="all_beer_sort_pale">Pale</string>
+    <string name="all_beer_sort_brown">Brown</string>
+    <string name="all_beer_sort_unfiltered">Unfiltered</string>
+    <string name="all_beer_sort_cider">Cider</string>
+
+    <!-- Menu -->
+    <string name="main_menu_sort">Sort</string>
+    <string name="main_menu_search">Search</string>
+
 </resources>
