@@ -1,7 +1,7 @@
 package com.vladimirkondenko.beerbuddies.data.pubs.model
 
-data class Pub(
-        val id: Int = 0,
+data class Bar(
+        val id: Long = 0,
         val name: String = String(),
         val lat: Int = 0,
         val lng: Int = 0,

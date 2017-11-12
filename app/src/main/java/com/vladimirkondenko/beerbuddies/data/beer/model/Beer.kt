@@ -1,9 +1,7 @@
 package com.vladimirkondenko.beerbuddies.data.beer.model
 
-import com.vladimirkondenko.beerbuddies.data.pubs.model.Pub
-
 data class Beer(
-        val pub: Pub = Pub(),
+        val bar: Long = -1,
         val brand: String = String(),
         val desc: String = String(),
         val price: String = String(),

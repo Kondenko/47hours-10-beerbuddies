@@ -4,7 +4,7 @@ import com.androidhuman.rxfirebase2.database.ChildEvent
 import com.androidhuman.rxfirebase2.database.childEvents
 import com.google.firebase.database.FirebaseDatabase
 import com.vladimirkondenko.beerbuddies.data.beer.model.Beer
-import com.vladimirkondenko.beerbuddies.data.pubs.model.Pub
+import com.vladimirkondenko.beerbuddies.data.pubs.model.Bar
 import io.reactivex.Observable
 
 object FirebaseManager {
@@ -37,30 +37,33 @@ object FirebaseManager {
         pushBeer(bar = 3, name = "Coors & Coors Light", price = 22, style = "Stout")
     }
 
-    private fun pushBeer(bar: Int, name: String, desc: String? = String(), price: Int, type: String = "pale", style: String = "stout") {
+    private fun pushBeer(bar: Int, name: String, desc: String? = String(), price: Int, type: String = "pale", style: String = "stout", abv: Int = 0, rating: Int = 0) {
         val key = beerRef.push().key
-        beerRef.child(key).child("bar").setValue(name)
+        beerRef.child(key).child("bar").setValue(bar)
         beerRef.child(key).child("brand").setValue(name)
         beerRef.child(key).child("desc").setValue(desc)
         beerRef.child(key).child("price").setValue(price)
         beerRef.child(key).child("type").setValue(type)
         beerRef.child(key).child("style").setValue(style)
+        beerRef.child(key).child("abv").setValue(abv)
+        beerRef.child(key).child("rating").setValue(rating)
     }
 
     private fun pushPub(id: Int, name: String, address: String) {
         val key = pubsRef.push().key
-        pubsRef.child(key).child("id").setValue(name)
+        pubsRef.child(key).child("id").setValue(id)
         pubsRef.child(key).child("name").setValue(name)
         pubsRef.child(key).child("address").setValue(address)
     }
 
-    fun getPubs(): Observable<Pub>
+    fun getBars(): Observable<Bar>
             = pubsRef.childEvents()
-            .map { data -> Pub(name = data.getString("name"), desc = data.getString("address")) }
+            .map { data -> Bar(id = data.get("id") as Long, name = data.getString("name"), desc = data.getString("address")) }
 
     fun getBeer(): Observable<Beer>
             = beerRef.childEvents()
-            .map { data -> Beer(brand = data.getString("brand"), desc = data.getString("desc"), price = "$" + data.getString("price")) }
+//            .map { it.dataSnapshot().getValue(Beer::class.java)!! }
+            .map { data -> Beer(bar = (data.get("bar") as Long), brand = data.getString("brand"), desc = data.getString("desc"), price = "$" + data.getString("price")) }
 
     private fun ChildEvent.get(key: String) = this.dataSnapshot().child(key).value
 

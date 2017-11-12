@@ -26,8 +26,7 @@ class PubsFragment : Fragment() {
         adapter.clicks().subscribe {
             PubDetailsFragment().show(this.fragmentManager, it.toString())
         }
-        FirebaseManager.pushPubs()
-        FirebaseManager.getPubs().subscribe {
+        FirebaseManager.getBars().subscribe {
             adapter.addItem(it)
         }
     }
