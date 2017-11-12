@@ -25,6 +25,7 @@ class BeerFragment : Fragment() {
             BeerDetailsFragment().show(this.fragmentManager, it.toString())
         }
         beer_rxfilter_simple.filterActions().subscribe { filterModel -> Log.i("Filter", filterModel.toString()) }
+        FirebaseManager.pushBeer()
         FirebaseManager.getBeer().subscribe { beer -> adapter.addItem(beer) }
     }
 

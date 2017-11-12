@@ -9,8 +9,8 @@
     <!--Beer kinds-->
 
     <string name="all_beer_sort_pale">Pale</string>
-    <string name="all_beer_sort_brown">Brown</string>
-    <string name="all_beer_sort_unfiltered">Unfiltered</string>
+    <string name="all_beer_sort_ale">Ale</string>
+    <string name="all_beer_sort_stout">Stout</string>
     <string name="all_beer_sort_cider">Cider</string>
 
     <!-- Menu -->

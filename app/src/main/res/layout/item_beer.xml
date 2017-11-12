@@ -9,7 +9,7 @@
     android:paddingStart="16dp">
 
     <TextView
-        android:id="@+id/item_beer_name"
+        android:id="@+id/beer_textview_brand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -22,52 +22,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.24000001"
-        tools:text="Zombie Dust" />
-    <!--
-        <TextView
-            android:id="@+id/zombie_dust3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/item_beer_name"
-            app:layout_constraintStart_toEndOf="@+id/item_beer_name"
-            tools:text="6%" />
-
-        <TextView
-            android:id="@+id/zombie_dust2"
-            android:layout_width="wrap_content"
-            android:layout_height="16dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/zombie_dust3"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="$5" />
+        tools:text="New Belgium Fat Tire Belgian Style Ale" />
 
 
-        <TextView
-            android:id="@+id/zombie_dust2"
-            android:layout_width="wrap_content"
-            android:layout_height="16dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/zombie_dust3"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_beer_name"
-            tools:text="$5" />
+    <TextView
+        android:id="@+id/beer_textview_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:alpha="0.5"
+        android:maxLines="1"
+        android:textColor="@color/colorWhite"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/beer_textview_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/beer_textview_brand"
+        app:layout_constraintVertical_bias="0.24000001"
+        tools:text="New Belgium's most well-known beer is Fat Tire Amber Ale. " />
 
-    -->
+
+    <TextView
+        android:id="@+id/beer_textview_price"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="$5.99" />
+
 </android.support.constraint.ConstraintLayout>

@@ -13,9 +13,45 @@ object FirebaseManager {
     private val pubsRef = FirebaseDatabase.getInstance().reference.child("bar")
 
     fun pushPubs() {
+        pushPub(0, "MacLaren\'s Pub", "Ростов-на-Дону, пер. Университетский, 61")
+        pushPub(1, "BeerBuddies Bar", "Ростов-на-Дону, ул. Большая Садовая, 15")
+        pushPub(2, "Guzzler", "Таганрог, ул. Петровская, 30")
+        pushPub(3, "Heart's Pub", "Таганрог, ул. Фрунзе, 14")
+        pushPub(4, "Doberman", "Таганрог, ул. Петровская, 62")
+    }
+
+    fun pushBeer() {
+        pushBeer(bar = 0, name = "Keystone", desc = "A perfectly drinkable cheap beer", price = 1, style = "Porter")
+        pushBeer(bar = 1, name = "Michelob Ultra", desc = "It's only really good when ice cold", price = 1)
+        pushBeer(bar = 2, name = "Barcelona", price = 7, style = "Porter")
+        pushBeer(bar = 3, name = "Natural Ice", desc = "Ideal or beer pong games", price = 1)
+        pushBeer(bar = 4, name = "Ammer", price = 11, style = "Stout")
+        pushBeer(bar = 0, name = "Poschner", price = 11, style = "Porter")
+        pushBeer(bar = 1, name = "Beijing", price = 6, style = "Stout")
+        pushBeer(bar = 2, name = "Harpoon IPA", price = 13, style = "Ale", type = "Pale")
+        pushBeer(bar = 3, name = "Sierra Neveda Pale Ale", price = 16, style = "Ale", type = "Pale")
+        pushBeer(bar = 4, name = "Sam Adams", price = 14, style = "Stout")
+        pushBeer(bar = 0, name = "Shock Top", price = 12, style = "Stout")
+        pushBeer(bar = 1, name = "Blue Moon", price = 18, style = "Stout")
+        pushBeer(bar = 2, name = "Lagunitas IPA ", price = 15, style = "Ale", type = "Pale")
+        pushBeer(bar = 3, name = "Coors & Coors Light", price = 22, style = "Stout")
+    }
+
+    private fun pushBeer(bar: Int, name: String, desc: String? = String(), price: Int, type: String = "pale", style: String = "stout") {
+        val key = beerRef.push().key
+        beerRef.child(key).child("bar").setValue(name)
+        beerRef.child(key).child("brand").setValue(name)
+        beerRef.child(key).child("desc").setValue(desc)
+        beerRef.child(key).child("price").setValue(price)
+        beerRef.child(key).child("type").setValue(type)
+        beerRef.child(key).child("style").setValue(style)
+    }
+
+    private fun pushPub(id: Int, name: String, address: String) {
         val key = pubsRef.push().key
-        pubsRef.child(key).child("name").setValue("MacLaren\\'s Pub")
-        pubsRef.child(key).child("address").setValue("Ростов-на-Дону Университетский 61")
+        pubsRef.child(key).child("id").setValue(name)
+        pubsRef.child(key).child("name").setValue(name)
+        pubsRef.child(key).child("address").setValue(address)
     }
 
     fun getPubs(): Observable<Pub>
@@ -25,6 +61,8 @@ object FirebaseManager {
     fun getBeer(): Observable<Beer>
             = beerRef.childEvents()
             .map { data -> Beer(brand = data.getString("brand"), desc = data.getString("desc"), price = "$" + data.getString("price")) }
+
+    private fun ChildEvent.get(key: String) = this.dataSnapshot().child(key).value
 
     private fun ChildEvent.getString(key: String) = this.dataSnapshot().child(key).value.toString()
 

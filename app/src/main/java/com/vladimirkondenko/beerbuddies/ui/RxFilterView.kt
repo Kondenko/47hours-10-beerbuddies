@@ -23,15 +23,15 @@ class RxFilterView(context: Context, attrs: AttributeSet?) : FrameLayout(context
 
     fun filterActions(): Observable<FilterModel> {
         val paleChanges: Observable<Boolean> = RxCompoundButton.checkedChanges(all_beerfilter_checkbox_pale)
-        val brownChanges: Observable<Boolean> = RxCompoundButton.checkedChanges(all_beerfilter_checkbox_brown)
-        val unfilteredChanges: Observable<Boolean> = RxCompoundButton.checkedChanges(all_beerfilter_checkbox_unfiltered)
-        return Observable.combineLatest(paleChanges, brownChanges, unfilteredChanges,
-                Function3<Boolean, Boolean, Boolean, FilterModel>  { isPale, isBrown, isUnfiltered ->
-                    FilterModel(isPale, isBrown, isUnfiltered)
+        val aleChanges: Observable<Boolean> = RxCompoundButton.checkedChanges(all_beerfilter_checkbox_ale)
+        val stoutChanges: Observable<Boolean> = RxCompoundButton.checkedChanges(all_beerfilter_checkbox_stout)
+        return Observable.combineLatest(paleChanges, aleChanges, stoutChanges,
+                Function3<Boolean, Boolean, Boolean, FilterModel>  { isPale, isAle, isStout ->
+                    FilterModel(isPale, isAle, isStout)
                 }
         )
     }
 
-    data class FilterModel(val isPale: Boolean = false, val isBrown: Boolean = false, val isUnfiltered: Boolean = false)
+    data class FilterModel(val isPale: Boolean = false, val isAle: Boolean = false, val isStout: Boolean = false)
 
 }

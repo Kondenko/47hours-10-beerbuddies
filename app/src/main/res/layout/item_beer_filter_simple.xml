@@ -18,20 +18,20 @@
         tools:checked="true" />
 
     <CheckBox
-        android:id="@+id/all_beerfilter_checkbox_brown"
+        android:id="@+id/all_beerfilter_checkbox_ale"
         style="@style/Beer.ButtonFilter"
         android:layout_width="0dp"
         android:layout_height="@dimen/height_filter_button"
         android:layout_weight="1"
-        android:text="@string/all_beer_sort_brown" />
+        android:text="@string/all_beer_sort_ale" />
 
     <CheckBox
-        android:id="@+id/all_beerfilter_checkbox_unfiltered"
+        android:id="@+id/all_beerfilter_checkbox_stout"
         style="@style/Beer.ButtonFilter"
         android:layout_width="0dp"
         android:layout_height="@dimen/height_filter_button"
         android:layout_weight="1"
-        android:text="@string/all_beer_sort_unfiltered" />
+        android:text="@string/all_beer_sort_stout" />
 
     <Button
         android:id="@+id/all_beerfilter_button_advanced_filter"
