@@ -2,6 +2,7 @@ package com.vladimirkondenko.beerbuddies.presentation.beer
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ class BeerFragment : Fragment() {
         adapter.clicks().subscribe {
             BeerDetailsFragment().show(this.fragmentManager, it.toString())
         }
+        beer_rxfilter_simple.filterActions().subscribe { filterModel -> Log.i("Filter", filterModel.toString()) }
     }
 
 }

@@ -1,5 +1,6 @@
 package com.vladimirkondenko.beerbuddies.presentation.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
@@ -9,6 +10,7 @@ import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems
 import com.vladimirkondenko.beerbuddies.R
 import com.vladimirkondenko.beerbuddies.presentation.beer.BeerFragment
 import com.vladimirkondenko.beerbuddies.presentation.pubs.PubsFragment
+import com.vladimirkondenko.beerbuddies.presentation.search.SearchActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -33,7 +35,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-
+            R.id.main_action_search -> {
+                val intent = Intent(this, SearchActivity::class.java)
+                startActivity(intent)
+            }
+            else -> throw NullPointerException("No callback for menu item with id ${item.itemId}")
         }
         return super.onOptionsItemSelected(item)
     }
