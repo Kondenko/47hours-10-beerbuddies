@@ -1,10 +1,10 @@
 apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
 apply plugin: "kotlin-android-extensions"
-apply plugin: "com.google.gms.google-services"
 
 android {
     compileSdkVersion 26
+    buildToolsVersion '27.0.1'
     defaultConfig {
         applicationId "com.vladimirkondenko.beerbuddies"
         minSdkVersion 17
@@ -44,15 +44,6 @@ dependencies {
     compile "com.android.support:design:$supportLibraryVersion"
     compile "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
 
-    // Retrofit
-    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    compile "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
-
-    // Dagger
-    compile "com.google.dagger:dagger:$daggerVersion"
-    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
-
     // Rx
     compile "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     compile "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
@@ -60,8 +51,15 @@ dependencies {
     compile "com.jakewharton.rxbinding2:rxbinding:$rxBindingVersion"
     compile "com.jakewharton.rxbinding2:rxbinding-recyclerview-v7:$rxBindingVersion"
 
+    compile 'com.google.firebase:firebase-core:11.6.0'
+    compile 'com.google.firebase:firebase-database:11.6.0'
+    compile 'com.androidhuman.rxfirebase2:firebase-database:11.2.2.0'
+    compile 'com.androidhuman.rxfirebase2:firebase-database-kotlin:11.2.2.0'
+
     // misc
     compile "com.ogaclejapan.smarttablayout:library:$smartTabLayoutVersion@aar"
     compile "com.ogaclejapan.smarttablayout:utils-v4:$smartTabLayoutVersion@aar"
 
 }
+
+apply plugin: 'com.google.gms.google-services'

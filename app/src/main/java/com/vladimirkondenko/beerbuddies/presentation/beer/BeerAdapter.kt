@@ -13,19 +13,13 @@ class BeerAdapter(context: Context) : BaseRxAdapter<Beer, BeerAdapter.ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(getView(R.layout.item_beer, parent))
 
     class ViewHolder(view: View) : BaseRxAdapter.BaseViewHolder<Beer>(view) {
-/*
-         override var item: Beer?
-             get() = super.item
-             set(value) {
-                 itemView.item_beer_name.text = value?.name
-             }
-*/
 
         override fun bindItem(item: Beer) {
             super.bindItem(item)
-            itemView.findViewById<TextView>(R.id.item_beer_name).text = item.name
+            itemView.findViewById<TextView>(R.id.beer_textview_brand).text = item.brand
+            itemView.findViewById<TextView>(R.id.beer_textview_desc).text = item.desc
+            itemView.findViewById<TextView>(R.id.beer_textview_price).text = item.price.toString()
         }
-
 
     }
 

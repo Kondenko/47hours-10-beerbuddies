@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.vladimirkondenko.beerbuddies.R
-import com.vladimirkondenko.beerbuddies.data.pubs.model.Pub
+import com.vladimirkondenko.beerbuddies.data.FirebaseManager
 import com.vladimirkondenko.beerbuddies.presentation.pubdetails.PubDetailsFragment
 import kotlinx.android.synthetic.main.fragment_pubs.*
 
@@ -22,10 +22,13 @@ class PubsFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapter = PubsAdapter(context)
-        for (i in 0..15)  adapter.addItem(Pub("Pub $i", "${i*10}th Avenut, ${i*100}"))
         pubs_recyclerview_list.adapter = adapter
         adapter.clicks().subscribe {
             PubDetailsFragment().show(this.fragmentManager, it.toString())
+        }
+        FirebaseManager.pushPubs()
+        FirebaseManager.getPubs().subscribe {
+            adapter.addItem(it)
         }
     }
 
