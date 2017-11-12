@@ -23,8 +23,8 @@ class BeerFragment : Fragment() {
         adapter.clicks().subscribe { beer ->
             BeerDetailsFragment.newInstance(beer.bar).show(this.fragmentManager, beer.toString())
         }
-        FirebaseManager.pushBeer()
-        FirebaseManager.pushPubs()
+//        FirebaseManager.pushBeer()
+//        FirebaseManager.pushPubs()
         val beerObsrevable = FirebaseManager.getBeer()
         beerObsrevable.subscribe { beer -> adapter.addItem(beer) }
         beer_rxfilter_simple.filterActions()
