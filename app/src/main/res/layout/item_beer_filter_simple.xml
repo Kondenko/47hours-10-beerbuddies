@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="56dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingEnd="8dp"
+    android:paddingStart="8dp">
 
     <CheckBox
         android:id="@+id/all_beerfilter_checkbox_pale"
@@ -30,13 +32,13 @@
         android:layout_weight="1"
         android:text="@string/all_beer_sort_unfiltered" />
 
-  Е  <Button
+    <Button
         android:id="@+id/all_beerfilter_button_advanced_filter"
         style="@style/Beer.ButtonFilter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="..." />
+        android:text="• • •" />
 
 
 </LinearLayout>

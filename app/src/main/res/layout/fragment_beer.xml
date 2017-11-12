@@ -21,6 +21,7 @@
             app:layoutManager="LinearLayoutManager"
             tools:context="com.vladimirkondenko.beerbuddies.presentation.beer.BeerFragment"
             tools:listitem="@layout/item_beer" />
+        
     </LinearLayout>
 
 </FrameLayout>

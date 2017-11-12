@@ -1,19 +1,10 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/beer_container"
+    android:id="@+id/pubs_recyclerview_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.vladimirkondenko.beerbuddies.presentation.pubs.PubsFragment">
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/pubs_recyclerview_list"
-        android:name="com.vladimirkondenko.beerbuddies.presentation.beer.BeerFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="8dp"
-        app:layoutManager="LinearLayoutManager"
-        tools:context="com.vladimirkondenko.beerbuddies.presentation.beer.PubsFragment"
-        tools:listitem="@layout/item_pub" />
-
-</FrameLayout>
+    android:paddingTop="8dp"
+    app:layoutManager="LinearLayoutManager"
+    tools:context="com.vladimirkondenko.beerbuddies.presentation.pubs.PubsFragment"
+    tools:listitem="@layout/item_pub" />
